@@ -197,6 +197,7 @@ function DijkstraAlgorithm(tableMatrix, startNode, endNode) {
             updateUnvisitedNeighbors(closestNode, tableMatrix);
         }
     }, 5); // Adjust the interval duration as needed
+    enableButtons()
 }
 
 
@@ -343,6 +344,7 @@ function BFSAlgorithm(tableMatrix, startNode, endNode) {
     }, 25); // Adjust the interval duration as needed
     queue.push(startNode)
     startNode.isVisited = true
+    enableButtons()
 }
 
 function DFSAlgorithm(tableMatrix, startNode, endNode) {
@@ -379,6 +381,7 @@ function DFSAlgorithm(tableMatrix, startNode, endNode) {
     }, 25); // Adjust the interval duration as needed
     stack.push(startNode);
     startNode.isVisited = true;
+    enableButtons()
 }
 
 
