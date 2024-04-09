@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GraphAlgorithms</title>
+    <link rel="stylesheet" href="graphAlgorithmCSS.css">
+    <script src="PathFinderAlgorithms.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+</head>
+<body>
+<div id="tutorialPage">
+    <h1>Welcome to my page about Graph Algorithms</h1>
+    <p id="paragraphTutorial">Just for your understanding this page is still not 100%
+        developed it still has some minor issues that have to be dealt with
+        but in short time they should be fixed. For the inspiration of this site the
+        credits goes to this man --> <a>here</a>. I have used HTML, CSS and JavaScript
+        and tried making my own version of the site and tried to test my algorithmic skills
+        as well as designer skills and tried to reach a new level of knowledge.
+        In continuation, I will explain to you how some of the things work.
+        Things that have yet to be implemented:
+        <br>
+        - Make the start and finish node dynamically be moved to any position on the grid
+        because of right now they are statically declared.
+        <br>
+        - Making a feature to apply custom weight to a Node
+        <br>
+        - Make some visual changes for the graphical part of the algorithms.
+        <br>
+        - New algorithms to be implemented as I continue to learn, some of them including: Swarm Algorithm,
+        A*, Greedy Best-first Search.
+        <br>
+        - Implement a feature that will generate a maze that will have a "guaranteed" solution as well as making them
+        weighted
+        <br>
+        <span id="tutorialChoosePage">
+            <button class="btn" onclick="turnOffTutorial(this)">Close</button>
+            <button class="btn" onclick="nextPage()">Next</button>
+        </span>
+    </p>
+</div>
+<nav id="navigationBar">
+    <div><span id="nameSite">Path Finder</span></div>
+    <div id="divSeparateNameHome"></div>
+    <div><a href="index.html">Home</a></div>
+    <div><a href="SortingAlgorithms.html">Sorting Algorithms</a></div>
+    <div>
+        <label>Algorithm
+            <select id="chooseAlgorithm">
+                <option selected>Choose Algorithm</option>
+                <option>Dijkstra's algorithm</option>
+                <option>Breadth First Search</option>
+                <option>Depth First Search</option>
+            </select>
+        </label>
+    </div>
+    <div id="buttonShowDiv">
+        <button onclick="showPath()" id="showAlgorithmButton">Show Algorithm</button>
+    </div>
+    <div id="buttonClearTableDiv">
+        <button onclick="clearTable()" id="clearTableButton">Reset Table</button>
+    </div>
+
+<!--WIP    <div id="buttonClearWalls">-->
+<!--        <button onclick="clearWalls()" id="clearWallsButton">Clear walls</button>-->
+<!--    </div>-->
+    <div><img src="imageNeutron2.png" alt="Kiro is beautiful" width="50px" height="50px"></div>
+</nav>
+<div id="container">
+    <div id="navigationLegend">
+        <p id="startNodeP">
+            S - Start Node
+        </p>
+        <p id="finishNodeP">
+            F - Finish Node
+        </p>
+        <p id="unvisitedNodeP">
+            <span id="unvisitedNodeContainer"><span id="unvisitedNode"></span></span><span id="unvisitedNodeText"> - Unvisited Node</span>
+        </p>
+        <p id="wallNodeP">
+            <span id="wallNodeContainer"><span id="wallNode"></span></span><span id="wallNodeText"> - Wall Node</span>
+        </p>
+        <p id="visitedNodesP">
+            <span id="visitedNodeContainer">
+                <span class="visitedNode"></span>
+                <span class="visitedNode"></span>
+            </span><span id="visitedNOdeText"> - Visited Node</span>
+        </p>
+        <p id="shortestPathNodeP">
+            <span id="shortestPathNodeContainer"><span id="shortestPathNode"></span></span><span
+                id="shortestPathNodeText"> - Shortest Path Node</span>
+        </p>
+    </div>
+    <div id="descriptionAlgorithmLegend">
+        <p id="makeDescription"></p>
+    </div>
+    <div id="tablePathFinder">
+        <table id="tableGraph">
+
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

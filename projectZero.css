@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    width: 1215px;
+}
+
+h1 {
+    font-family: "Comic Sans MS", cursive;
+}
+
+#navigationBar {
+    display: flex;
+    background: #062631;
+    height: 50px;
+    padding-left: 20px;
+    font-family: "Comic Sans MS", cursive;
+}
+
+#navigationBar > div {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+#navigationBar > div > a {
+    color: beige;
+    text-decoration: none;
+}
+
+#navigationBar > div:last-of-type {
+    position: absolute;
+    margin-left: 1100px;
+    margin-top: 0;
+}
+
+#navigationBar > div > a:hover {
+    transition: color 1s;
+    color: lightskyblue;
+}
+
+#container {
+    width: auto;
+    height: 1000px;
+    background-image: linear-gradient(to bottom right, #f5f5dc 20%, #e3c8a9 99%, #e3c8a9 100%);
+    padding: 10px;
+    color: #062631;
+}
+
+
+#container > h1 {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 10px;
+}
+
+#imageTextSelfContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#imageTextSelfContainer > div:first-of-type {
+    width: 240px;
+    height: 360px;
+    margin-top: 40px;
+    margin-left: 140px;
+}
+
+#selfImage {
+    width: 280px;
+    height: auto;
+}
+
+#divTextSelf {
+    margin-left: 80px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#selfContainer {
+    display: flex;
+    flex-direction: column;
+    background: #062631;
+    color: beige;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#selfHobbiesText, #selfDescriptionText {
+    width: 400px;
+}
+
+#programmingSkills {
+    background: #062631;
+    color: beige;
+    border-radius: 10px;
+    float: left;
+    margin-left: 80px;
+    margin-top: 100px;
+    padding: 10px;
+    width: 400px;
+}
+
+#welcomeText {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 40px;
+    font-family: "Comic Sans MS", cursive;
+
+}
+
+#languagesLogos {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#languagesLogos > img {
+    display: block;
+    width: 125px;
+    height: 125px;
+}
+
+#languagesLogosContainer {
+    width: 400px;
+    background: #062631;
+    color: beige;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 120px;
+}
+
+#programmingLanguages {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+}

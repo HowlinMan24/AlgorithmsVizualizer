@@ -1,0 +1,359 @@
+body {
+    margin: 0;
+    width: 1215px;
+    font-weight: bold;
+}
+
+h1 {
+    font-family: "Comic Sans MS", cursive;
+}
+
+#navigationBar {
+    position: relative;
+    display: flex;
+    background: #062631;
+    height: 50px;
+    padding-left: 20px;
+    font-family: "Comic Sans MS", cursive;
+    color: beige;
+}
+
+#navigationBar > div {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+#navigationBar > div:nth-of-type(3) {
+    display: inline-block;
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+#divSeparateNameHome {
+    position: absolute;
+    left: 125px;
+    top: -10px;
+    padding: 0;
+    width: 2px;
+    height: 40px;
+    background: beige;
+    border-radius: 4px;
+}
+
+#navigationBar > div > a {
+    color: beige;
+    text-decoration: none;
+}
+
+#navigationBar > div:last-of-type {
+    position: absolute;
+    margin-left: 1100px;
+    margin-top: 0;
+}
+
+#navigationBar > div > a:hover {
+    transition: color 1s;
+    color: lightskyblue;
+}
+
+#chooseAlgorithm,#chooseAlgorithm option {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #062631;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    cursor: pointer;
+    text-align: center;
+    transition: color 1s, border-color 1s;
+}
+
+#chooseAlgorithm:hover, #chooseAlgorithm option:hover {
+    color: lightskyblue;
+    border-color: lightskyblue;
+}
+
+#showAlgorithmButton, #clearTableButton, #clearWallsButton, #startNodeDiv {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #062631;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    cursor: pointer;
+    transition: color 1s, border-color 1s;
+}
+
+#showAlgorithmButton:hover, #clearTableButton:hover, #clearWallsButton:hover {
+    color: lightskyblue;
+    border-color: lightskyblue;
+}
+
+#navigationLegend {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table, td, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+.visited {
+    background: radial-gradient(circle, hsl(200, 100%, 80%) 0%, hsl(200, 100%, 60%) 100%);
+}
+
+#tableGraph span {
+    padding-left: 4px;
+}
+
+#startNodeP {
+    background-color: #062631;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    width: 97px;
+    height: 20px;
+}
+
+#finishNodeP {
+    background-color: #062631;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    width: 105px;
+    height: 20px;
+}
+
+#wallNodeContainer {
+    background-color: #e3e3cb;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 101px;
+    height: 20px;
+}
+
+#wallNodeP, #visitedNodesP {
+    display: flex;
+    background-color: #062631;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    width: 130px;
+    height: 30px;
+}
+
+#wallNode {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: black;
+}
+
+#wallNodeContainer {
+    display: block;
+    width: 21px;
+    height: 21px;
+}
+
+#wallNodeText, #visitedNOdeText, #unvisitedNodeText, #shortestPathNodeText {
+    display: flex;
+    justify-content: center; /* Horizontal alignment */
+    align-items: center; /* Vertical alignment */
+    height: 100%; /* Ensure the span takes up full height of its parent */
+    padding-left: 5px;
+}
+
+#visitedNodesP {
+    display: flex;
+    flex-direction: row;
+    background-color: #062631;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    width: 165px;
+    height: 30px;
+}
+
+#visitedNodeContainer {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #e3e3cb;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    width: 52px;
+    height: 21px;
+}
+
+.visitedNode:first-child {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: lightskyblue;
+}
+
+.visitedNode:last-child {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+    background-color: midnightblue;
+}
+
+#unvisitedNodeP {
+    display: flex;
+    flex-direction: row;
+    background-color: #062631;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    width: 165px;
+    height: 30px;
+}
+
+#unvisitedNode {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+}
+
+#unvisitedNodeContainer {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #e3e3cb;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    width: 25px;
+    height: 21px;
+}
+
+#shortestPathNodeP {
+    display: flex;
+    flex-direction: row;
+    background-color: #062631;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    width: 182px;
+    height: 30px;
+}
+
+#shortestPathNodeContainer {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #e3e3cb;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    width: 25px;
+    height: 21px;
+}
+
+#shortestPathNode {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+}
+
+#descriptionAlgorithmLegend {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+}
+
+#tutorialPage {
+    width: 500px;
+    height: 525px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: beige;
+    border: black 5px solid;
+    border-radius: 4px;
+    padding: 0 20px 20px;
+    font-family: "Comic Sans MS", cursive;
+    font-size: 16px;
+}
+
+#tutorialPage > h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+#tutorialPage > p > span {
+    text-align: center;
+    display: inline-block;
+}
+
+#tutorialChoosePage {
+    width: 500px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#tutorialChoosePage .btn {
+    background-color: black;
+    color: beige;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+#tutorialChoosePage .btn:hover {
+    transition: color 1s;
+    color: lightskyblue;
+}
+
+.btn2 {
+    background-color: black;
+    color: beige;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-left: 45%;
+}
+#tutorialChoosePage .btn2:hover {
+    transition: color 1s;
+    color: lightskyblue;
+}

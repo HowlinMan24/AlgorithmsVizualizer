@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    width: 1215px;
+    font-weight: bold;
+}
+
+h1 {
+    font-family: "Comic Sans MS", cursive;
+}
+
+#navigationBar {
+    position: relative;
+    display: flex;
+    background: #062631;
+    height: 50px;
+    padding-left: 20px;
+    font-family: "Comic Sans MS", cursive;
+    color: beige;
+}
+
+#navigationBar > div {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+#navigationBar > div:nth-of-type(3) {
+    display: inline-block;
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+#divSeparateNameHome {
+    position: absolute;
+    left: 183px;
+    top: -10px;
+    padding: 0;
+    width: 2px;
+    height: 40px;
+    background: beige;
+    border-radius: 4px;
+}
+
+#navigationBar > div > a {
+    color: beige;
+    text-decoration: none;
+}
+
+#navigationBar > div:last-of-type {
+    position: absolute;
+    margin-left: 1100px;
+    margin-top: 0;
+}
+
+#navigationBar > div > a:hover {
+    transition: color 1s;
+    color: lightskyblue;
+}
+
+#chooseAlgorithm, #showAlgorithmButton {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #062631;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    cursor: pointer;
+    text-align: center;
+    transition: color 1s, border-color 1s;
+}
+
+#chooseAlgorithm:hover {
+    color: lightskyblue;
+    border-color: lightskyblue;
+}
+
+/*#showAlgorithmButton {*/
+/*    appearance: none;*/
+/*    -webkit-appearance: none;*/
+/*    -moz-appearance: none;*/
+/*    background-color: #062631;*/
+/*    padding: 4px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 5px;*/
+/*    color: beige;*/
+/*    cursor: pointer;*/
+/*    transition: color 1s, border-color 1s;*/
+/*}*/
+
+#showAlgorithmButton:hover {
+    color: lightskyblue;
+    border-color: lightskyblue;
+}
+
+#tableArrayGraph {
+    width: fit-content;
+    height: 500px;
+}
+
+table, tr, td {
+    height: fit-content;
+    border-collapse: collapse;
+}
+
+#tableSortNodes {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 100vh; /* Adjust the height as needed */
+}
