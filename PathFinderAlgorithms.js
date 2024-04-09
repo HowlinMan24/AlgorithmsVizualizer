@@ -197,7 +197,7 @@ function DijkstraAlgorithm(tableMatrix, startNode, endNode) {
         }
     }, 5); // Adjust the interval duration as needed
     enableButtons()
-    enableEvents(tableReference)
+    // enableEvents(tableReference)
 }
 
 
@@ -345,7 +345,7 @@ function BFSAlgorithm(tableMatrix, startNode, endNode) {
     queue.push(startNode)
     startNode.isVisited = true
     enableButtons()
-    enableEvents(tableReference)
+    // enableEvents(tableReference)
 }
 
 function DFSAlgorithm(tableMatrix, startNode, endNode) {
@@ -383,7 +383,7 @@ function DFSAlgorithm(tableMatrix, startNode, endNode) {
     stack.push(startNode);
     startNode.isVisited = true;
     enableButtons()
-    enableEvents(tableReference)
+    // enableEvents(tableReference)
 }
 
 
