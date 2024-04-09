@@ -136,7 +136,7 @@ function handleMouseUp(event) {
 
 function toggleWall(event) {
     const nodeReference = getNode(event.target);
-    if (nodeReference && !nodeReference.isStart && !nodeReference.isFinish && checkAvailableWall(event.target)) {
+    if (nodeReference && !nodeReference.isStart && !nodeReference.isFinish) {
         if (event.type === 'mousedown' || (isMouseDown && event.type === 'mousemove')) {
             event.target.style.transition = "background-color 0.7s";
             if (!nodeReference.isWall) {
@@ -149,39 +149,6 @@ function toggleWall(event) {
         }
     }
 }
-
-function checkAvailableWall(target) {
-    var up = getNodeSpecial(target, "up")
-    var down = getNodeSpecial(target, "down")
-    var left = getNodeSpecial(target, "left")
-    var right = getNodeSpecial(target, "right")
-    return (up !== null) || (down !== null) || (left !== null) || (right !== null)
-}
-
-function getNodeSpecial(target, locationToMove) {
-    switch (locationToMove) {
-        case "up":
-            var row = parseInt(target.dataset.row) + 1
-            var col = parseInt(target.dataset.col)
-            break;
-        case "down":
-            var row = parseInt(target.dataset.row) - 1
-            var col = parseInt(target.dataset.col)
-            break;
-        case "left":
-            var row = parseInt(target.dataset.row)
-            var col = parseInt(target.dataset.col) - 1
-            break;
-        default:
-            var row = parseInt(target.dataset.row)
-            var col = parseInt(target.dataset.col) + 1
-            break;
-    }
-    if (!isNaN(row) && isNaN(col))
-        return tableMatrix[row][col]
-    return null
-}
-
 
 function getNode(node) {
     var row = parseInt(node.dataset.row);
