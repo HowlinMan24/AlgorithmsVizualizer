@@ -1,7 +1,8 @@
 body {
     margin: 0;
-    width: 1215px;
     font-weight: bold;
+    font-family: "Comic Sans MS", cursive;
+    width: 100%;
 }
 
 h1 {
@@ -12,30 +13,36 @@ h1 {
     position: relative;
     display: flex;
     background: #062631;
-    height: 50px;
-    padding-left: 20px;
+    height: 40%;
+    padding: 1%;
     font-family: "Comic Sans MS", cursive;
     color: beige;
 }
 
+
+#container {
+    width: 100%; /* Fill the entire viewport width */
+    max-width: 100%; /* Ensure the container doesn't exceed viewport width */
+    height: 91.7vh;
+    background-image: linear-gradient(to bottom right, #f5f5dc 20%, #e3c8a9 99%, #e3c8a9 100%);
+    padding: 1%; /* Adjusted for responsiveness */
+    color: #062631;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+
 #navigationBar > div {
-    display: inline-block;
-    margin-left: 20px;
-    margin-top: 15px;
-    margin-right: 10px;
+    margin-right: 2%;
 }
 
 #navigationBar > div:nth-of-type(3) {
-    display: inline-block;
-    margin-left: 25px;
-    margin-top: 15px;
-    margin-right: 10px;
+    margin-left: 2%;
 }
 
 #divSeparateNameHome {
     position: absolute;
-    left: 125px;
-    top: -10px;
+    left: calc(100px + 2%);
+    top: calc(7px + 2%);
     padding: 0;
     width: 2px;
     height: 40px;
@@ -50,8 +57,8 @@ h1 {
 
 #navigationBar > div:last-of-type {
     position: absolute;
-    margin-left: 1100px;
-    margin-top: 0;
+    right: 2%;
+    top: 0;
 }
 
 #navigationBar > div > a:hover {
@@ -59,10 +66,11 @@ h1 {
     color: lightskyblue;
 }
 
-#chooseAlgorithm,#chooseAlgorithm option {
+#chooseAlgorithm, #chooseAlgorithm option {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    font-weight: bold;
     background-color: #062631;
     padding: 5px;
     border: 1px solid #ccc;
@@ -75,6 +83,7 @@ h1 {
 
 #chooseAlgorithm:hover, #chooseAlgorithm option:hover {
     color: lightskyblue;
+    font-weight: bold;
     border-color: lightskyblue;
 }
 
@@ -96,14 +105,28 @@ h1 {
     border-color: lightskyblue;
 }
 
-#navigationLegend {
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 0;
-    padding-left: 10px;
-    padding-right: 10px;
+
+/* Add media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    #navigationBar {
+        flex-wrap: wrap;
+    }
+
+    #navigationBar > div {
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    #navigationBar > div:last-of-type {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #divSeparateNameHome {
+        position: static;
+        margin-top: 10px;
+    }
 }
 
 table, td, tr {
@@ -119,8 +142,9 @@ table, td, tr {
 }
 
 .visited {
-    background: radial-gradient(circle, hsl(200, 100%, 80%) 0%, hsl(200, 100%, 60%) 100%);
+    background: radial-gradient(circle, hsl(180, 100%, 80%) 0%, hsl(180, 100%, 60%) 25%, hsl(120, 100%, 40%) 50%, hsl(200, 100%, 60%) 75%, hsl(200, 100%, 80%) 100%);
 }
+
 
 #tableGraph span {
     padding-left: 4px;
@@ -131,19 +155,21 @@ table, td, tr {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 10px;
     color: beige;
     width: 97px;
-    height: 20px;
+    height: 18px;
 }
 
 #finishNodeP {
     background-color: #062631;
     padding: 4px;
+    font-size: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     color: beige;
     width: 105px;
-    height: 20px;
+    height: 18px;
 }
 
 #wallNodeContainer {
@@ -257,6 +283,56 @@ table, td, tr {
     height: 21px;
 }
 
+#navigationLegend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #062631;
+    color: beige;
+    border-radius: 10px;
+}
+
+.legend-item {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    min-width: fit-content;
+}
+
+#unvisitedNodeContainer,
+#wallNodeContainer,
+#visitedNodeContainer,
+#shortestPathNodeContainer {
+    margin-right: 5px;
+}
+
+#unvisitedNode,
+#wallNode,
+.visitedNode,
+#shortestPathNode {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+/* Media Query for responsiveness */
+@media only screen and (max-width: 768px) {
+    #navigationLegend {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .legend-item {
+        margin: 5px 0;
+    }
+}
+
+
 #shortestPathNodeP {
     display: flex;
     flex-direction: row;
@@ -304,7 +380,7 @@ table, td, tr {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    background-color: beige;
+    background-image: linear-gradient(to bottom right, #f5f5dc 20%, #e3c8a9 99%, #e3c8a9 100%);
     border: black 5px solid;
     border-radius: 4px;
     padding: 0 20px 20px;
@@ -341,7 +417,6 @@ table, td, tr {
 
 #tutorialChoosePage .btn:hover {
     transition: color 1s;
-    color: lightskyblue;
 }
 
 .btn2 {
@@ -353,7 +428,22 @@ table, td, tr {
     cursor: pointer;
     margin-left: 45%;
 }
+
 #tutorialChoosePage .btn2:hover {
     transition: color 1s;
     color: lightskyblue;
 }
+
+#tablePathFinder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Adjust height as needed */
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+}
+
+#tableGraph {
+    width: 97%; /* Set table width to 100% */
+}
+

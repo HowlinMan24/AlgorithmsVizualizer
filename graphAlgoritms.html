@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>GraphAlgorithms</title>
     <link rel="stylesheet" href="graphAlgorithmCSS.css">
+    <link rel="icon" type="image/x-icon" href="imageNeutron2.png">
     <script src="PathFinderAlgorithms.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
 </head>
@@ -46,7 +47,7 @@
     <div>
         <label>Algorithm
             <select id="chooseAlgorithm">
-                <option selected>Choose Algorithm</option>
+                <option selected disabled>&#9660;</option>
                 <option>Dijkstra's algorithm</option>
                 <option>Breadth First Search</option>
                 <option>Depth First Search</option>
@@ -67,29 +68,30 @@
 </nav>
 <div id="container">
     <div id="navigationLegend">
-        <p id="startNodeP">
+        <div class="legend-item" id="startNodeP">
             S - Start Node
-        </p>
-        <p id="finishNodeP">
+        </div>
+        <div class="legend-item" id="finishNodeP">
             F - Finish Node
-        </p>
-        <p id="unvisitedNodeP">
+        </div>
+        <div class="legend-item" id="unvisitedNodeP">
             <span id="unvisitedNodeContainer"><span id="unvisitedNode"></span></span><span id="unvisitedNodeText"> - Unvisited Node</span>
-        </p>
-        <p id="wallNodeP">
+        </div>
+        <div class="legend-item" id="wallNodeP">
             <span id="wallNodeContainer"><span id="wallNode"></span></span><span id="wallNodeText"> - Wall Node</span>
-        </p>
-        <p id="visitedNodesP">
-            <span id="visitedNodeContainer">
-                <span class="visitedNode"></span>
-                <span class="visitedNode"></span>
-            </span><span id="visitedNOdeText"> - Visited Node</span>
-        </p>
-        <p id="shortestPathNodeP">
+        </div>
+        <div class="legend-item" id="visitedNodesP">
+        <span id="visitedNodeContainer">
+            <span class="visitedNode"></span>
+            <span class="visitedNode"></span>
+        </span><span id="visitedNodeText"> - Visited Node</span>
+        </div>
+        <div class="legend-item" id="shortestPathNodeP">
             <span id="shortestPathNodeContainer"><span id="shortestPathNode"></span></span><span
                 id="shortestPathNodeText"> - Shortest Path Node</span>
-        </p>
+        </div>
     </div>
+
     <div id="descriptionAlgorithmLegend">
         <p id="makeDescription"></p>
     </div>

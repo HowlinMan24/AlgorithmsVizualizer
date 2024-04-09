@@ -48,7 +48,7 @@ function buildTableMatrix(tableReference) {
         // Push row to tableMatrix
         tableMatrix.push(row);
     }
-    // rgeegrwg
+
     // Update HTML table with CustomNode properties
     for (var i = 0; i < 20; i++) {
         var htmlRow = tableReference.insertRow();
@@ -62,7 +62,7 @@ function buildTableMatrix(tableReference) {
                 cell.innerHTML = '<span style="font-size: 20px; font-weight: bold; justify-content: center; align-items: center;height: 100%;">F</span>';
                 // cell.style.backgroundColor = 'green';
             } else { // This is used when resetting the table
-                cell.style.backgroundColor = 'transparent'
+                cell.style.backgroundColor = 'white'
             }
             if (cell.isWall) cell.isWall = false
             // Apply the coordinates to the cell
@@ -103,19 +103,26 @@ function disableEvents(tableReference) {
 
 function enableEvents(tableReference) {
     tableReference.style.pointerEvents = "auto";
+
+}
+
+function disableButtons() {
+    var buttons = document.getElementsByTagName("button")
+    for (var i = 0; i < buttons.length; i++)
+        buttons[i].disabled = false
+}
+
+function enableButtons() {
+    var buttons = document.getElementsByTagName("button")
+    for (var i = 0; i < buttons.length; i++)
+        buttons[i].disabled = true
 }
 
 function handleMouseDown(event) {
-    var cell = event.target
-    if (cell.isStart) {
-        // chageStartPosition();
-    } else if (cell.isFinish) {
-        // changeEndNodePostion();
-    }else {
-        isMouseDown = true;
-        toggleWall(event);
-    }
+    isMouseDown = true;
+    toggleWall(event);
 }
+
 
 function handleMouseMove(event) {
     if (isMouseDown) {
@@ -136,7 +143,7 @@ function toggleWall(event) {
                 event.target.style.backgroundColor = "black";
                 nodeReference.isWall = true;
             } else {
-                event.target.style.backgroundColor = "transparent";
+                event.target.style.backgroundColor = "white";
                 nodeReference.isWall = false;
             }
         }
@@ -158,10 +165,12 @@ function DijkstraAlgorithm(tableMatrix, startNode, endNode) {
     startNode.distance = 0;
     let unvisitedNodes = getNodes(tableMatrix, startNode, endNode);
     disableEvents(tableReference);
+    // disableButtons();
     // clearTable()
     const intervalId = setInterval(() => {
         if (!unvisitedNodes.length) {
             clearInterval(intervalId);
+            enableButtons();
             return
         }
 
@@ -171,6 +180,7 @@ function DijkstraAlgorithm(tableMatrix, startNode, endNode) {
         if (!closestNode.isWall) {
             if (closestNode.distance === Infinity) {
                 clearInterval(intervalId);
+                enableButtons()
                 return
             }
 
@@ -181,12 +191,12 @@ function DijkstraAlgorithm(tableMatrix, startNode, endNode) {
             if (closestNode === endNode) {
                 clearInterval(intervalId);
                 getNodesInShortestPathOrder(endNode);
+                enableButtons()
                 return
             }
             updateUnvisitedNeighbors(closestNode, tableMatrix);
         }
     }, 5); // Adjust the interval duration as needed
-    disableEvents(tableReference)
 }
 
 
@@ -203,13 +213,13 @@ function updateUnvisitedNeighbors(node, tableMatrix) {
 
 function getUnvisitedNeighbors(node, tableMatrix) {
     var neighbors = [];
-    if (node.col < tableMatrix[0].length - 1)
-        neighbors.push(tableMatrix[node.row][node.col + 1]);
-    if (node.row < tableMatrix.length - 1)
-        neighbors.push(tableMatrix[node.row + 1][node.col]);
-    if (node.row > 0)
+    if (node.row > 0) // Up
         neighbors.push(tableMatrix[node.row - 1][node.col]);
-    if (node.col > 0)
+    if (node.row < tableMatrix.length - 1) // Down
+        neighbors.push(tableMatrix[node.row + 1][node.col]);
+    if (node.col < tableMatrix[0].length - 1) // Right
+        neighbors.push(tableMatrix[node.row][node.col + 1]);
+    if (node.col > 0) // Left
         neighbors.push(tableMatrix[node.row][node.col - 1]);
     return neighbors.filter((neighbor) => !neighbor.isVisited);
 }
@@ -303,40 +313,47 @@ function BFSAlgorithm(tableMatrix, startNode, endNode) {
     queue.push(startNode);
     startNode.isVisited = true;
     disableEvents(tableReference)
-    // clearTable()
+    // disableButtons();
     const intervalId = setInterval(() => {
         if (queue.length === 0) {
             clearInterval(intervalId);
+            enableButtons();
             return;
         }
 
         const currentNode = queue.shift();
-        visitedNodesInOrder.push(currentNode);
-        markVisited(currentNode);
 
-        if (currentNode === endNode) {
-            clearInterval(intervalId);
-            getNodesInShortestPathOrder(endNode);
-            return;
-        }
+        if (!currentNode.isWall) {
+            visitedNodesInOrder.push(currentNode);
+            markVisited(currentNode);
+            if (currentNode === endNode) {
+                clearInterval(intervalId);
+                getNodesInShortestPathOrder(endNode);
+                enableButtons();
+                return;
+            }
 
-        const neighbors = getUnvisitedNeighbors(currentNode, tableMatrix);
-        for (const neighbor of neighbors) {
-            neighbor.isVisited = true;
-            neighbor.previousNode = currentNode;
-            queue.push(neighbor);
+            const neighbors = getUnvisitedNeighbors(currentNode, tableMatrix);
+            for (const neighbor of neighbors) {
+                neighbor.isVisited = true;
+                neighbor.previousNode = currentNode;
+                queue.push(neighbor);
+            }
         }
     }, 25); // Adjust the interval duration as needed
+    queue.push(startNode)
+    startNode.isVisited = true
 }
 
 function DFSAlgorithm(tableMatrix, startNode, endNode) {
     const visitedNodesInOrder = [];
     const stack = [];
     disableEvents(tableReference)
-    // clearTable()
+    // disableButtons();
     const intervalId = setInterval(() => {
         if (stack.length === 0) {
             clearInterval(intervalId);
+            enableButtons();
             return;
         }
 
@@ -348,6 +365,7 @@ function DFSAlgorithm(tableMatrix, startNode, endNode) {
             if (currentNode === endNode) {
                 clearInterval(intervalId);
                 getNodesInShortestPathOrder(endNode);
+                enableButtons();
                 return;
             }
 
@@ -359,7 +377,6 @@ function DFSAlgorithm(tableMatrix, startNode, endNode) {
             }
         }
     }, 25); // Adjust the interval duration as needed
-
     stack.push(startNode);
     startNode.isVisited = true;
 }

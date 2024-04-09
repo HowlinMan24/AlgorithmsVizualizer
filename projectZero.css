@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    width: 1215px;
+    width: 100%; /* Adjusted to full width */
 }
 
 h1 {
@@ -11,13 +11,13 @@ h1 {
     display: flex;
     background: #062631;
     height: 50px;
-    padding-left: 20px;
+    padding-left: 2%; /* Adjusted for responsiveness */
     font-family: "Comic Sans MS", cursive;
 }
 
 #navigationBar > div {
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 2%; /* Adjusted for responsiveness */
     margin-top: 15px;
 }
 
@@ -27,8 +27,8 @@ h1 {
 }
 
 #navigationBar > div:last-of-type {
-    position: absolute;
-    margin-left: 1100px;
+    margin-left: auto; /* Adjusted to align right */
+    margin-right: 2%; /* Adjusted for responsiveness */
     margin-top: 0;
 }
 
@@ -38,105 +38,103 @@ h1 {
 }
 
 #container {
-    width: auto;
-    height: 1000px;
+    width: 100%; /* Fill the entire viewport width */
+    max-width: 100%; /* Ensure the container doesn't exceed viewport width */
     background-image: linear-gradient(to bottom right, #f5f5dc 20%, #e3c8a9 99%, #e3c8a9 100%);
-    padding: 10px;
+    padding: 1%; /* Adjusted for responsiveness */
     color: #062631;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
-
 
 #container > h1 {
     text-align: center;
     margin-top: 0;
-    padding-top: 10px;
+    padding-top: 1%; /* Adjusted for responsiveness */
 }
 
 #imageTextSelfContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Center items */
+    text-align: center;
 }
 
-
 #imageTextSelfContainer > div:first-of-type {
-    width: 240px;
-    height: 360px;
+    width: 100%; /* Adjusted for responsiveness */
+    max-width: 240px; /* Limit width */
     margin-top: 40px;
-    margin-left: 140px;
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
 }
 
 #selfImage {
-    width: 280px;
+    width: 100%;
     height: auto;
 }
 
 #divTextSelf {
-    margin-left: 80px;
-    width: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 20px; /* Adjusted for responsiveness */
+    width: 100%; /* Adjusted for responsiveness */
 }
 
 #selfContainer {
-    display: flex;
-    flex-direction: column;
     background: #062631;
     color: beige;
-    padding: 10px;
+    padding: 2%; /* Adjusted for responsiveness */
     border-radius: 10px;
 }
 
-#selfHobbiesText, #selfDescriptionText {
-    width: 400px;
+#selfHobbiesText,
+#selfDescriptionText {
+    max-width: 100%; /* Adjusted for responsiveness */
 }
 
 #programmingSkills {
     background: #062631;
+    text-align: center;
     color: beige;
+    padding: 2%; /* Adjusted for responsiveness */
     border-radius: 10px;
-    float: left;
-    margin-left: 80px;
-    margin-top: 100px;
-    padding: 10px;
-    width: 400px;
+    margin-top: 20px; /* Adjusted for responsiveness */
 }
 
 #welcomeText {
     font-size: 26px;
     font-weight: bold;
-    margin-top: 40px;
+    margin-top: 20px; /* Adjusted for responsiveness */
     font-family: "Comic Sans MS", cursive;
-
+    text-align: center; /* Center text */
 }
 
 #languagesLogos {
-    width: 250px;
-    height: 250px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Center items */
 }
 
 #languagesLogos > img {
-    display: block;
-    width: 125px;
-    height: 125px;
+    width: 50%; /* Adjusted for responsiveness */
+    max-width: 125px; /* Limit width */
+    height: auto;
+    margin: 2%;
 }
 
 #languagesLogosContainer {
-    width: 400px;
+    width: 40%;
     background: #062631;
     color: beige;
+    padding: 2%; /* Adjusted for responsiveness */
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 120px;
+    margin-top: 20px; /* Adjusted for responsiveness */
+    text-align: center; /* Center text */
 }
 
 #programmingLanguages {
     font-size: 22px;
     font-weight: bold;
     margin-top: 0;
+}
+
+button {
+    font-weight: bold;
 }
