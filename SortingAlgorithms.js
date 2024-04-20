@@ -31,8 +31,7 @@ function fillUpDiv(divReference) {
 }
 
 function setDivAttributes(divReference) {
-    // TODO make a text place where you would place the size of each div depending on its height
-    var height = (Math.random() * 260)
+    var height = (Math.random() * 90)
     var width = 1.2
     divReference.style.backgroundColor = 'red'
     divReference.style.width = width + 'px'
