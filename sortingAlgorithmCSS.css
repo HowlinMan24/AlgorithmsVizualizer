@@ -80,6 +80,24 @@ h1 {
     border-color: lightskyblue;
 }
 
+#showAlgorithmButton, #clearTableButton {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #062631;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: beige;
+    cursor: pointer;
+    transition: color 1s, border-color 1s;
+}
+
+#showAlgorithmButton:hover, #clearTableButton:hover {
+    color: lightskyblue;
+    border-color: lightskyblue;
+}
+
 #tableSortNodes {
     width: 100%; /* Fill the entire viewport width */
     max-width: 100%; /* Ensure the container doesn't exceed viewport width */
