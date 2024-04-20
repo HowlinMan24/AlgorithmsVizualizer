@@ -31,8 +31,8 @@ h1 {
 
 #divSeparateNameHome {
     position: absolute;
-    left: calc(15% + 2px); /* Use calc for dynamic positioning */
-    top: -10px;
+    left: calc(15% + -12px); /* Use calc for dynamic positioning */
+    top: 6px;
     padding: 0;
     width: 2px;
     height: 40px;

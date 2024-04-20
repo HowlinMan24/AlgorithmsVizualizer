@@ -39,5 +39,10 @@ function setDivAttributes(divReference) {
     divReference.style.height = height + 'vh'
     divReference.value = height
     divReference.style.alignSelf = 'flex-end'
+    var textNode=document.createTextNode(`${height}`);
+    var paragraph = document.createElement("p")
+    paragraph.appendChild(textNode)
+    paragraph.style.alignSelf = 'flex-end'
+    divReference.appendChild(paragraph)
 }
 
