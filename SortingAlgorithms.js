@@ -15,30 +15,28 @@ function applyCustomStyle(cell, node) {
     cell.style.backgroundColor = node.backgroundColor;
 }
 
+var divArraySorting
 
 window.onload = function () {
-    tableReference = document.getElementById("tableArrayGraph");
-    tableArray = buildTableArray(tableReference)
-    // makeEventsForClick(tableReference)
-    // document.getElementById("chooseAlgorithm").addEventListener('change', putDescriptionForAlgorithm)
+    divArraySorting = document.getElementById("divArrayGraph")
+    fillUpDiv(divArraySorting)
 };
 
-function buildTableArray(tableReference) {
-    // fill in the array with nodes
-    console.log("enter")
-    for (var i = 0; i < 150; i++) {
-        tableArray[i] = Node()
+function fillUpDiv(divReference) {
+    for (var i = 0; i < 240; i++) {
+        var divElement = document.createElement('div')
+        setDivAttributes(divElement)
+        divReference.appendChild(divElement)
     }
-    console.log("Fills the array with Nodes")
-    console.log(tableArray)
-    var arrayRow = tableReference.insertRow()
-    console.log("Make the row")
-    for (var i = 0; i < 150; i++) {
-        var cell = arrayRow.insertCell()
-        cell.setAttribute('id', `${i}`)
-        applyCustomStyle(cell, tableArray[i])
-        console.log("Make the cell")
-    }
-
-    return tableReference
 }
+
+function setDivAttributes(divReference) {
+    var height = Math.floor(Math.random() * 500)
+    var width = 5
+    divReference.style.backgroundColor = 'red'
+    divReference.style.width = width + 'px'
+    divReference.style.height = height + 'px'
+    divReference.value = height
+    divReference.style.alignSelf = 'flex-end'
+}
+

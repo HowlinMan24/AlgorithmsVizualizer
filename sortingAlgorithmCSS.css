@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    width: 1215px;
+    max-width: 1215px; /* Set max-width instead of fixed width */
+    width: 100%; /* Ensure width adjusts to screen size */
     font-weight: bold;
 }
 
@@ -13,28 +14,26 @@ h1 {
     display: flex;
     background: #062631;
     height: 50px;
-    padding-left: 20px;
+    padding-left: 2%; /* Use percentage for padding */
+    padding-right: 2%;
     font-family: "Comic Sans MS", cursive;
     color: beige;
 }
 
 #navigationBar > div {
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 2%; /* Use percentage for margin */
     margin-top: 15px;
-    margin-right: 10px;
+    margin-right: 1%;
 }
 
 #navigationBar > div:nth-of-type(3) {
-    display: inline-block;
-    margin-left: 25px;
-    margin-top: 15px;
-    margin-right: 10px;
+    margin-left: 2%; /* Use percentage for margin */
 }
 
 #divSeparateNameHome {
     position: absolute;
-    left: 183px;
+    left: calc(15% + 2px); /* Use calc for dynamic positioning */
     top: -10px;
     padding: 0;
     width: 2px;
@@ -50,7 +49,7 @@ h1 {
 
 #navigationBar > div:last-of-type {
     position: absolute;
-    margin-left: 1100px;
+    right: 2%; /* Use percentage for margin */
     margin-top: 0;
 }
 
@@ -78,37 +77,52 @@ h1 {
     border-color: lightskyblue;
 }
 
-/*#showAlgorithmButton {*/
-/*    appearance: none;*/
-/*    -webkit-appearance: none;*/
-/*    -moz-appearance: none;*/
-/*    background-color: #062631;*/
-/*    padding: 4px;*/
-/*    border: 1px solid #ccc;*/
-/*    border-radius: 5px;*/
-/*    color: beige;*/
-/*    cursor: pointer;*/
-/*    transition: color 1s, border-color 1s;*/
-/*}*/
-
 #showAlgorithmButton:hover {
     color: lightskyblue;
     border-color: lightskyblue;
 }
 
-#tableArrayGraph {
-    width: fit-content;
+#tableSortNodes {
+    width: 100%; /* Take full width of the container */
     height: 500px;
 }
 
-table, tr, td {
-    height: fit-content;
-    border-collapse: collapse;
+#divArrayGraph {
+    width: 100%; /* Take full width of the container */
+    height: 500px;
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto; /* Center the div horizontally */
 }
 
-#tableSortNodes {
-    display: flex;
-    justify-content: center; /* Horizontally center the content */
-    align-items: center; /* Vertically center the content */
-    height: 100vh; /* Adjust the height as needed */
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    #navigationBar {
+        flex-wrap: wrap; /* Allow navigation items to wrap */
+        justify-content: space-between; /* Distribute items evenly */
+        padding: 2% 5%; /* Adjust padding */
+    }
+
+    #navigationBar > div {
+        margin-left: 0; /* Reset margin */
+        margin-right: 0; /* Reset margin */
+        margin-top: 5px; /* Adjust margin */
+        width: 100%; /* Take full width */
+        text-align: center; /* Center align */
+    }
+
+    #navigationBar > div:nth-of-type(3) {
+        margin-top: 0; /* Reset margin */
+    }
+
+    #divSeparateNameHome {
+        display: none; /* Hide separator */
+    }
+
+    #navigationBar > div:last-of-type {
+        position: relative; /* Reset position */
+        margin-top: 10px; /* Adjust margin */
+    }
 }
