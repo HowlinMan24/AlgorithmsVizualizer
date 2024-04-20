@@ -109,13 +109,14 @@ function enableEvents(tableReference) {
 function disableButtons() {
     var buttons = document.getElementsByTagName("button")
     for (var i = 0; i < buttons.length; i++)
-        buttons[i].disabled = false
+        buttons[i].disabled = true
 }
 
 function enableButtons() {
+    console.log("The buttons are enabled")
     var buttons = document.getElementsByTagName("button")
     for (var i = 0; i < buttons.length; i++)
-        buttons[i].disabled = true
+        buttons[i].disabled = false
 }
 
 function handleMouseDown(event) {
@@ -164,7 +165,7 @@ function DijkstraAlgorithm(tableMatrix, startNode, endNode) {
     startNode.distance = 0;
     let unvisitedNodes = getNodes(tableMatrix, startNode, endNode);
     disableEvents(tableReference);
-    // disableButtons();
+    disableButtons();
     // clearTable()
     const intervalId = setInterval(() => {
         if (!unvisitedNodes.length) {
