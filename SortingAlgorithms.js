@@ -31,11 +31,11 @@ function fillUpDiv(divReference) {
 }
 
 function setDivAttributes(divReference) {
-    var height = Math.random() * 90
+    var height = (Math.random() * 60) + 30
     var width = 1
     divReference.style.backgroundColor = 'red'
     divReference.style.width = width + 'px'
-    divReference.style.height = height + 'vh'
+    divReference.style.height = height + 'px'
     divReference.value = height
     divReference.style.alignSelf = 'flex-end'
 }
