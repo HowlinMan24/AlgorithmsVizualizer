@@ -1,8 +1,9 @@
 body {
     margin: 0;
-    max-width: 1215px; /* Set max-width instead of fixed width */
+    /*max-width: 1215px; !* Set max-width instead of fixed width *!*/
     width: 100%; /* Ensure width adjusts to screen size */
     font-weight: bold;
+    font-family: "Comic Sans MS", cursive;
 }
 
 h1 {
@@ -13,17 +14,14 @@ h1 {
     position: relative;
     display: flex;
     background: #062631;
-    height: 50px;
-    padding-left: 2%; /* Use percentage for padding */
-    padding-right: 2%;
-    font-family: "Comic Sans MS", cursive;
+    height: 40%;
+    padding: 1%;
     color: beige;
 }
 
 #navigationBar > div {
     display: inline-block;
     margin-left: 2%; /* Use percentage for margin */
-    margin-top: 15px;
     margin-right: 1%;
 }
 
@@ -83,13 +81,18 @@ h1 {
 }
 
 #tableSortNodes {
-    width: 100%; /* Take full width of the container */
-    height: 500px;
+    width: 100%; /* Fill the entire viewport width */
+    max-width: 100%; /* Ensure the container doesn't exceed viewport width */
+    background-image: linear-gradient(to bottom right, #f5f5dc 20%, #e3c8a9 99%, #e3c8a9 100%);
+    padding: 1%; /* Adjusted for responsiveness */
+    color: #062631;
+    box-sizing: border-box; /* Include padding in width calculation */
+    height: calc(500 + 1%);
 }
 
 #divArrayGraph {
     width: 100%; /* Take full width of the container */
-    height: 500px;
+    height: calc(500 + 1%);
     display: flex; /* Use flexbox */
     flex-wrap: wrap;
     justify-content: center;

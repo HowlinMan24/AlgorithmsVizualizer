@@ -452,7 +452,6 @@ table, td, tr {
     text-decoration: none;
     cursor: pointer;
 }
-
 #clementCSS:hover {
     text-decoration: underline;
 }

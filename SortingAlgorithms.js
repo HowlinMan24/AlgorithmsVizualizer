@@ -23,7 +23,7 @@ window.onload = function () {
 };
 
 function fillUpDiv(divReference) {
-    for (var i = 0; i < 240; i++) {
+    for (var i = 0; i < 520; i++) {
         var divElement = document.createElement('div')
         setDivAttributes(divElement)
         divReference.appendChild(divElement)
@@ -32,7 +32,7 @@ function fillUpDiv(divReference) {
 
 function setDivAttributes(divReference) {
     var height = Math.floor(Math.random() * 500)
-    var width = 5
+    var width = 2
     divReference.style.backgroundColor = 'red'
     divReference.style.width = width + 'px'
     divReference.style.height = height + 'px'
