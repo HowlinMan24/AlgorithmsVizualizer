@@ -38,10 +38,11 @@ window.onload = function () {
 function buildTableMatrix(tableReference) {
     // Fill tableMatrix with CustomNode objects and create HTML table
     tableMatrix = []
-    for (var i = 0; i < 20; i++) {
+    var cell, i, j
+    for (i = 0; i < 20; i++) {
         var row = [];
-        for (var j = 0; j < 60; j++) {
-            var cell = Node(i, j); // Create CustomNode object for current cell
+        for (j = 0; j < 60; j++) {
+            cell = Node(i, j); // Create CustomNode object for current cell
             // Set background color based on CustomNode properties
             row.push(cell);
         }
@@ -50,10 +51,10 @@ function buildTableMatrix(tableReference) {
     }
 
     // Update HTML table with CustomNode properties
-    for (var i = 0; i < 20; i++) {
+    for (i = 0; i < 20; i++) {
         var htmlRow = tableReference.insertRow();
-        for (var j = 0; j < 60; j++) {
-            var cell = htmlRow.insertCell();
+        for (j = 0; j < 60; j++) {
+            cell = htmlRow.insertCell();
             cell.setAttribute("id", `${i}-${j}`)
             if (tableMatrix[i][j].isStart) {
                 cell.innerHTML = '<span style="font-size: 20px; font-weight: bold; justify-content: center;align-items: center;height: 100%;">S</span>';
