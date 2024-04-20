@@ -31,7 +31,7 @@ function fillUpDiv(divReference) {
 }
 
 function setDivAttributes(divReference) {
-    var height = (Math.random() * 100) + (Math.random() * 2)
+    var height = (Math.random() * 90) + (Math.random() * 2)
     var width = 1.2
     divReference.style.backgroundColor = 'red'
     divReference.style.width = width + 'px'
