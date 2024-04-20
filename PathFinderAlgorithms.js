@@ -197,7 +197,7 @@ function DijkstraAlgorithm(tableMatrix, startNode, endNode) {
             updateUnvisitedNeighbors(closestNode, tableMatrix);
         }
     }, 5); // Adjust the interval duration as needed
-    enableButtons()
+    // enableButtons()
     // enableEvents(tableReference)
 }
 
@@ -277,7 +277,6 @@ function getNodesInShortestPathOrder(endNode) {
         currentNode = currentNode.previousNode;
     }
     console.log("enters")
-    // console.log(nodesInShortestPathOrder)
     changeColorPath(nodesInShortestPathOrder);
 }
 
