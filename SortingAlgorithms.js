@@ -23,7 +23,7 @@ window.onload = function () {
 };
 
 function fillUpDiv(divReference) {
-    for (var i = 0; i < 520; i++) {
+    for (var i = 0; i < 920; i++) {
         var divElement = document.createElement('div')
         setDivAttributes(divElement)
         divReference.appendChild(divElement)
@@ -33,17 +33,11 @@ function fillUpDiv(divReference) {
 function setDivAttributes(divReference) {
     // TODO make a text place where you would place the size of each div depending on its height
     var height = (Math.random() * 260)
-    var width = 2
+    var width = 1.2
     divReference.style.backgroundColor = 'red'
     divReference.style.width = width + 'px'
     divReference.style.height = height + 'vh'
     divReference.value = height
     divReference.style.alignSelf = 'flex-end'
-    // var textNode = document.createTextNode(`${parseInt(height.toString())}`);
-    // var paragraph = document.createElement("p")
-    // paragraph.appendChild(textNode)
-    // paragraph.style.alignSelf = 'flex-end'
-    // paragraph.style.fontSize = 1.2 + 'px'
-    // divReference.appendChild(paragraph)
 }
 
