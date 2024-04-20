@@ -2,7 +2,6 @@ body {
     margin: 0;
     /*max-width: 1215px; !* Set max-width instead of fixed width *!*/
     width: 100%; /* Ensure width adjusts to screen size */
-    max-height: 600px;
     font-weight: bold;
     font-family: "Comic Sans MS", cursive;
 }
