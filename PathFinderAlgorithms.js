@@ -95,6 +95,12 @@ function makeEventsForClick(tableReference) {
         }
     });
 
+    tableReference.addEventListener('click',function (event) {
+        if(event.button === 0 && event.ctrlKey) {
+            console.log("I have clicked the ctrl + left mouse click")
+        }
+    })
+
     tableReference.addEventListener('click', toggleWall);
 }
 
