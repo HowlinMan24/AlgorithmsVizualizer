@@ -10,6 +10,7 @@ const Node = (row, col) => {
         isStart: row === START_NODE_ROW && col === START_NODE_COL,
         isFinish: row === FINISH_NODE_ROW && col === FINISH_NODE_COL,
         //TODO make the ability to change the weighted so it can change the path
+        weight: 1,
         distance: Infinity, // This is initially will increase with 1
         isVisited: false, // This used for the algorithms in the array
         isWall: false,
@@ -76,15 +77,20 @@ function buildTableMatrix(tableReference) {
 }
 
 function makeEventsForClick(tableReference) {
-    // Add event listeners for mouse events to the table, delegating to its cells
     tableReference.addEventListener('mousedown', function (event) {
         if (event.target.classList.contains('cell')) {
-            handleMouseDown(event);
+            if (event.ctrlKey) {
+                event.preventDefault();  // Prevent default action to avoid any other event impact
+                changeWeightNode(event);
+                event.stopPropagation(); // Stop the event from propagating to other handlers
+            } else {
+                handleMouseDown(event);
+            }
         }
     });
 
     tableReference.addEventListener('mousemove', function (event) {
-        if (event.target.classList.contains('cell')) {
+        if (event.target.classList.contains('cell') && isMouseDown && !event.ctrlKey) {
             handleMouseMove(event);
         }
     });
@@ -95,14 +101,13 @@ function makeEventsForClick(tableReference) {
         }
     });
 
-    tableReference.addEventListener('click',function (event) {
-        if(event.button === 0 && event.ctrlKey) {
-            console.log("I have clicked the ctrl + left mouse click")
+    tableReference.addEventListener('click', function (event) {
+        if (event.target.classList.contains('cell') && !event.ctrlKey && event.button === 0) {
+            toggleWall(event);
         }
-    })
-
-    tableReference.addEventListener('click', toggleWall);
+    });
 }
+
 
 function disableEvents(tableReference) {
     tableReference.style.pointerEvents = "none";
@@ -145,7 +150,7 @@ function handleMouseUp(event) {
 function toggleWall(event) {
     const nodeReference = getNode(event.target);
     if (nodeReference && !nodeReference.isStart && !nodeReference.isFinish) {
-        if (event.type === 'mousedown' || (isMouseDown && event.type === 'mousemove')) {
+        if (event.type === 'mousedown' || (isMouseDown && event.type === 'mousemove') && !event.ctrlKey) {
             event.target.style.transition = "background-color 0.7s";
             if (!nodeReference.isWall) {
                 event.target.style.backgroundColor = "black";
@@ -215,7 +220,7 @@ function updateUnvisitedNeighbors(node, tableMatrix) {
         /*
         TODO currently the graph is weighted by +1, need to add weighted node as well with maybe +10
          */
-        neighbor.distance = node.distance + 1;
+        neighbor.distance = node.distance + node.weight;
         neighbor.previousNode = node;
     }
 }
@@ -426,6 +431,14 @@ function clearTable() {
 //     }
 // }
 
+function changeWeightNode(event) {
+    var targetNode = getNode(event.target)
+    var newValue = prompt("Change the weight of the node")
+    console.log(targetNode.weight)
+    targetNode.weight = parseInt(newValue)
+    console.log(targetNode.weight)
+}
+
 function showPath() {
     var option = findSelectedAlgorithm()
     console.log(option)
@@ -468,7 +481,8 @@ function nextPage() {
         "to choose an algorithm that you would like to try.<br>" +
         "You also have a legend from which you can see the " +
         "different possibilities of nodes within the grid.<br>" +
-        "As well as you can click and click-drag to create walls and click on them to remove them.";
+        "As well as you can click and click-drag to create walls and click on them to remove them.<br>" +
+        "You can change the weight of any node with holding ctrl + leftclick on any node.";
     var button = document.createElement("button");
     button.textContent = "Close";
     button.setAttribute('onclick', 'turnOffTutorial(this)')
